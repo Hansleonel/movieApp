@@ -1,12 +1,12 @@
 // TODO para realizar esta importacion debemos de usar la dependecia
 // TODO http de dart dentro de nuestro pubsec.yaml
-
 import 'package:http/http.dart' as http;
 
 import 'dart:convert';
 import 'dart:async';
 
 import 'package:movieapp/src/models/movie_model.dart';
+import 'package:movieapp/src/models/actors_model.dart';
 
 class MoviesProvider {
   String _apikey = '05d4eb27ef5bd3bb8d836f2d24dcbad6';
@@ -165,4 +165,30 @@ class MoviesProvider {
   }
 
   int getPopularesSize() => _populares.length;
+
+  // TODO como vemos tambien crearemos un future para poder esperar
+  // TODO la respuesta de nuestra API y poder hacerle un decode
+  // OTODO para poder tratarla como un JSON
+  Future<List<Actor>> getCast(String peliId) async {
+    final urlActor = Uri.https(_url, '3/movie/$peliId/credits', {
+      'api_key': _apikey,
+      'lenguage': _language,
+    });
+
+    // TODO esperando respuesta de un API
+    final resp = await http.get(urlActor);
+    // TODO haciendo el .decode() del body de la respuesta previamente esperada
+    // TODO ademas usando una variable para almacenar todo el JSON
+    final decodedData = json.decode(resp.body);
+
+    // TODO una vez tengamos el JSON podemos acceder a sus propiedades
+    // TODO en este caso accedemos a su propiedad ['cast']
+    final cast = new Cast.fromJsonList(decodedData['cast']);
+
+    // TODO ademas accedemos a la variable "actoresList" de nuestra clase
+    // TODO Cast que como vemos ya tiene un valor almacenado luego de que usamos
+    // TODO el metodo ,fromJsonList(), y es del tipo List<Actor>, tal y como
+    // TODO necesitaba devolvr el Future<List<Actor>> getCast()
+    return cast.actoresList;
+  }
 }

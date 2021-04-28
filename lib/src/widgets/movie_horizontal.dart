@@ -115,7 +115,7 @@ class MovieHorizontal extends StatelessWidget {
       onTap: () {
         // TODO usamos la variable que recibio nuestro Widget _tarjeta(BuildContext context, Movie pelicula)
         // TODO para manejar sus propiedades en este caso la propiedad title
-        print("el nombre de la pelicula es ${pelicula.title}");
+        print("el nombre de la pelicula es ${pelicula.id}");
         // TODO usaremos el gesto onTap() que es una propiedad de nuestro Widget GestureDetector()
         // TODO para poder navegar de una pantalla a otra y enviar argumentos usando el PushNamed
         // TODO como sabemos el primer argumento es el BuildeContext context, el nombre de la ruta
