@@ -84,12 +84,15 @@ class PeliculaDetalle extends StatelessWidget {
           // TODO en la propiedad child
           // TODO que como sabemos dicho Widget recibido
           // TODO es el Widget FadeInImage()
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
-            child: FadeInImage(
-                height: 150.0,
-                placeholder: AssetImage('assets/img/no-image.jpg'),
-                image: NetworkImage(pelicula.getPosterImg())),
+          Hero(
+            tag: pelicula.uniqueId,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: FadeInImage(
+                  height: 150.0,
+                  placeholder: AssetImage('assets/img/no-image.jpg'),
+                  image: NetworkImage(pelicula.getPosterImg())),
+            ),
           ),
           // TODO dando un espacio en la fila
           // TODO entre el Widget ClipRRect() y el Widget Flexible()

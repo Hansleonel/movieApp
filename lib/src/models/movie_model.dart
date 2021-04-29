@@ -24,6 +24,13 @@ class Movies {
 }
 
 class Movie {
+  // TODO creamos esta propiedad para solucionar el problema
+  // TODO del Widget Hero, que como sabemos necesita enviar y recibir
+  // TODO un valor unico de una pagina a otra, incluso si los dos Widgets
+  // TODO Hero() se encuentra en una misma pagina y quieren interacturar con un
+  // TODO mismo Widget Hero() de la otra pagina
+  String uniqueId;
+
   bool adult;
   String backdropPath;
   List<int> genreIds;
@@ -91,7 +98,7 @@ class Movie {
     }
   }
 
-  getDescription(){
+  getDescription() {
     if (overview == null) {
       return 'NO DISPONIBLE';
     } else {

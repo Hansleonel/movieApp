@@ -60,6 +60,10 @@ class MovieHorizontal extends StatelessWidget {
                   controller: _pageController,
                   itemCount: peliculas.length,
                   itemBuilder: (context, index) {
+                    // TODO asignandole un valor unico a nuestra propiedad
+                    // TODO uniqueId
+                    peliculas[index].uniqueId = '${peliculas[index].id}-swiper';
+
                     return _tarjeta(context, peliculas[index]);
                   })),
     );
@@ -72,19 +76,27 @@ class MovieHorizontal extends StatelessWidget {
       margin: EdgeInsets.only(right: 15.0),
       child: Column(
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
-            child: FadeInImage(
-              placeholder: AssetImage('assets/img/loading.gif'),
-              // TODO usala variable "pelicula" que es tomada de el recorrido
-              // TODO del listado List<Movie> peliculas
-              // TODO al ser tomada de dicho listado y ser del tipo "Movie"
-              // TODO podemos usar el metodo "getPosterImg()" para poder conseguir
-              // TODO las imagienes que mostrara el Widget FadeInImage()
-              // TODO con la ayuda del NetworkImage()
-              image: NetworkImage(pelicula.getPosterImg()),
-              fit: BoxFit.cover,
-              height: 160.0,
+          Hero(
+            tag: pelicula.uniqueId,
+            child: GestureDetector(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: FadeInImage(
+                  placeholder: AssetImage('assets/img/loading.gif'),
+                  // TODO usala variable "pelicula" que es tomada de el recorrido
+                  // TODO del listado List<Movie> peliculas
+                  // TODO al ser tomada de dicho listado y ser del tipo "Movie"
+                  // TODO podemos usar el metodo "getPosterImg()" para poder conseguir
+                  // TODO las imagienes que mostrara el Widget FadeInImage()
+                  // TODO con la ayuda del NetworkImage()
+                  image: NetworkImage(pelicula.getPosterImg()),
+                  fit: BoxFit.cover,
+                  height: 160.0,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, 'detalle', arguments: pelicula);
+              },
             ),
           ),
           SizedBox(
