@@ -168,7 +168,7 @@ class MoviesProvider {
 
   // TODO como vemos tambien crearemos un future para poder esperar
   // TODO la respuesta de nuestra API y poder hacerle un decode
-  // OTODO para poder tratarla como un JSON
+  // TODO para poder tratarla como un JSON
   Future<List<Actor>> getCast(String peliId) async {
     final urlActor = Uri.https(_url, '3/movie/$peliId/credits', {
       'api_key': _apikey,
@@ -190,5 +190,14 @@ class MoviesProvider {
     // TODO el metodo ,fromJsonList(), y es del tipo List<Actor>, tal y como
     // TODO necesitaba devolvr el Future<List<Actor>> getCast()
     return cast.actoresList;
+  }
+
+  // TODO Future para esperar respuesta de nuestra API
+  // TODO en este caso para acceder a los resultados de un busqueda de una pelicula
+  Future<List<Movie>> searchMovie(String query) async {
+    final urlMovie = Uri.https(_url, '3/search/movie',
+        {'api_key': _apikey, 'language': _language, 'query': query});
+
+    return await _procesaRespuesta(urlMovie);
   }
 }

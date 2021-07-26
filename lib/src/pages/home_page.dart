@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/src/models/movie_model.dart';
 import 'package:movieapp/src/providers/movies_provider.dart';
+import 'package:movieapp/src/search/search_delegate.dart';
 
 import 'package:movieapp/src/widgets/card_swiper_widget.dart';
 import 'package:movieapp/src/widgets/movie_horizontal.dart';
@@ -32,7 +33,22 @@ class HomePage extends StatelessWidget {
         // TODO como vemos la propiedad "actions" de neustro Widget Appbar
         // TODO recibe un array de Widgets
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: () {})
+          IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                // TODO usando un metodo predefinido por Flutter para realizar busquedas
+                // TODO dicho metodo tiene nombre de showSearch() que tiene implementados
+                // TODO varios metodos para una mejor visualizacion de de una busqueda
+                // TODO ademas los  argumentos que podemos obligatorios son "context" que recibe
+                // TODO nuestro BuildContext context y "delegate" que recibe nuestro SearchDelegate
+                // TODO ademas un tercer parametro que podemos enviar es el "query" que recibe un
+                // TODO String
+                showSearch(
+                  context: context,
+                  delegate: DataSearch(),
+                  //query: 'podemos enviar un valor'
+                );
+              })
         ],
       ),
       // TODO como vemos la proiedad "body" de nuestro Widget Scaffold()
