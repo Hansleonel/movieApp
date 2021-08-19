@@ -37,7 +37,7 @@ class MovieHorizontal extends StatelessWidget {
 
     return Container(
       child: Container(
-          height: _screenSize.height * 0.2,
+          height: _screenSize.height * 0.25,
           child:
               /*PageView(
             // TODO usando propiedades de nuestro Widget PageView
