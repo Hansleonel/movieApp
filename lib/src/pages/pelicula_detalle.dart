@@ -11,7 +11,7 @@ class PeliculaDetalle extends StatelessWidget {
     // TODO recibiendo argumentos desde otra pagina mediante
     // TODO las rutas, en este caso desde el StatelesWidget MovieHorizontal()
     final Movie pelicula = ModalRoute.of<Movie>(context).settings.arguments;
-
+    final Movie pelicula2 = ModalRoute.of<Movie>(context).settings.arguments;
     return Scaffold(
       // TODO como vemos usaremos el Widget CustomScrollView
       // TODO dicho Widget nos permite hacer desplazamientos con la UI de manera
