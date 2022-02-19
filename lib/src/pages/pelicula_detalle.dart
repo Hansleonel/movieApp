@@ -106,13 +106,13 @@ class PeliculaDetalle extends StatelessWidget {
                 // TODO Widget dentro de la columna
                 Text(
                   pelicula.title,
-                  style: Theme.of(context).textTheme.title,
+                  style: Theme.of(context).textTheme.headline1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 // TODO Widget dentro de la columna
                 Text(
                   pelicula.originalTitle,
-                  style: Theme.of(context).textTheme.subhead,
+                  style: Theme.of(context).textTheme.subtitle1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 // TODO Widget dentro de la columna
@@ -124,7 +124,7 @@ class PeliculaDetalle extends StatelessWidget {
                       color: Colors.yellow,
                     ),
                     Text(pelicula.voteAverage.toString(),
-                        style: Theme.of(context).textTheme.subhead)
+                        style: Theme.of(context).textTheme.subtitle1)
                   ],
                 )
               ],
