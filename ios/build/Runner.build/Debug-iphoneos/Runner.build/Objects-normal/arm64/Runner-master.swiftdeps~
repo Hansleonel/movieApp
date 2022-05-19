@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
+options: "9037f8f28640b62bc4f3772dab406bbb5f0910cac02e0fc4e71901f3dbfb3793"
+build_start_time: [1652847111, 298593044]
+build_end_time: [1652847111, 472008943]
+inputs:
+  "/Users/hans/Desktop/Flutter/Prime Applications/movieApp/ios/Runner/AppDelegate.swift": !private [1629167160, 707068681]
